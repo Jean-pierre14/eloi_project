@@ -114,7 +114,7 @@ $result = mysqli_query($conn, $sql);
                         <div class="sidebar_menu">
                             <div class="sidebar__link active_menu_link">
                                 <i class="fa fa-home"></i>
-                                <a href="#">Dashboard</a>
+                                <a href="dashboard.php">Dashboard</a>
 
                             </div>
                             <h2 style="color: #ffffff;">MNG</h2>
@@ -159,19 +159,17 @@ $result = mysqli_query($conn, $sql);
                             </div>
                             <div class="sidebar__link">
                                 <i class="fa fa-files-o"></i>
-                                <a href="#">Employees leave</a>
+                                <a href="employeeFormer.php">Employees leave</a>
 
                             </div>
                             <h4>Notifications</h4>
                             <div class="sidebar__link">
                                 <i class="fa fa-money"></i>
                                 <a href="assignproject.php">Project Status</a>
-
                             </div>
                             <div class="sidebar__link">
                                 <i class="fa fa-briefcase"></i>
                                 <a href="msg.php">Messages</a>
-
                             </div>
                             <div class="sidebar__logout">
                                 <i class="fa fa-power-off"></i>

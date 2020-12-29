@@ -99,7 +99,7 @@ if(isset($_POST['update']))
     <div class="top-navbar">
         <nav class="navbar navbar-expand-lg p-0 navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="dashboard.php">
                     <img src="images/logonew.png" alt="" width="200">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food"

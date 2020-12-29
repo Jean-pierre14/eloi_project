@@ -119,7 +119,7 @@ $result = mysqli_query($conn, "UPDATE `employee` SET `firstName`='$firstname',`l
     <header class="top-navbar">
         <nav class="navbar navbar-expand-lg navbar-light p-0 bg-light">
             <div class="container">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="dashboard.php">
                     <img src="images/logonew.png" alt="" width="200">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food"
@@ -128,7 +128,7 @@ $result = mysqli_query($conn, "UPDATE `employee` SET `firstName`='$firstname',`l
                 </button>
                 <div class="collapse navbar-collapse" id="navbars-rs-food">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a class="nav-link" href="aloginwel.php">Home</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="dashboard.php">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="addemp.php">Add Employee</a></li>
                         <li class="nav-item"><a class="nav-link" href="viewemp.php">View Employee</a></li>
                         <li class="nav-item"><a class="nav-link" href="sniper.php?logout">LogOut</a></li>

@@ -59,7 +59,7 @@ if (!isset($_SESSION["email"])) {
     <header class="top-navbar">
         <nav class="navbar navbar-expand-lg p-0 navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="dashboard.php">
                     <img src="images/logonew.png" alt="" width="200">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food"
@@ -68,7 +68,7 @@ if (!isset($_SESSION["email"])) {
                 </button>
                 <div class="collapse navbar-collapse" id="navbars-rs-food">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" href="aloginwel.php">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="dashboard.php">Home</a></li>
                         <li class="nav-item active"><a class="nav-link" href="addemp.php">Add Employee</a></li>
 
                         <li class="nav-item"><a class="nav-link" href="assign.php">Assign Project</a></li>
