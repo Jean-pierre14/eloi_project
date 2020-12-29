@@ -1,0 +1,165 @@
+<?php 
+session_start();
+if (!isset($_SESSION["email"])) {
+  header("location: alogin.html");
+}
+
+require_once ('process/dbh.php');
+$sql = "SELECT id, firstName, lastName,  points FROM employee, rank WHERE rank.eid = employee.id order by rank.points desc";
+$result = mysqli_query($conn, $sql);
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <link rel="stylesheet" href="font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link rel="stylesheet" href="bootstrap-4.5.3/bootstrap.css" crossorigin="anonymous"> -->
+	<script type="text/javascript" src="bootstrap-4.5.3/jquery-3.5.1.slim.min.js"></script>
+	<script type="text/javascript" src="bootstrap-4.5.3/bootstrap.min.js"></script>
+	<script type="text/javascript" src="bootstrap-4.5.3/bootstrap.bundle.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="aaaaa/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="aaaaa/bootstrap-social.css">
+	<link rel="stylesheet" type="text/css" href="aaaaa/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="aaaaa/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap-4.5.3/font.css">
+	 <link rel="stylesheet" type="text/css" href="font-awesome.min.css">
+	 
+	<title>Admin Dashboard</title>
+</head>
+<body>
+	<header class="top-navbar">
+		<nav class="navbar navbar-expand-lg p-0 navbar-light bg-light">
+			<div class="container">
+				<a class="navbar-brand" href="index.html">
+					<img src="images/logonew.png" alt="" width="200">
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food"
+					aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbars-rs-food">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active"><a class="nav-link" href="aloginwel.php">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="addemp.php">Add Employee</a></li>
+	
+						<li class="nav-item"><a class="nav-link" href="assign.php">Assign Project</a></li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">All
+								pages</a>
+							<div class="dropdown-menu" aria-labelledby="dropdown-a">
+								<a class="dropdown-item" href="viewemp.php">View Employee</a>
+								<a class="dropdown-item" href="salaryemp.php">Salary Table</a>
+								<a class="dropdown-item" href="empleave.php">Employee Leave</a>
+								<a class="dropdown-item" href="assignproject.php">Project Status</a>
+								<a class="dropdown-item" href="msg.php">Messages</a>
+							</div>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="sniper.php?logout">LogOut</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<div class="wrapper">
+		<div id="sidebar">
+			<div class="sidebar__title">
+				<div class="sidebar__img">
+					<img src="assets/eloi.jpg" alt="">
+					<h1>EMS</h1>
+				</div>
+				<i class="fa fa-times" id="sidebarIcon" onclick="closeSidebar"></i>
+		
+			</div>
+			<div class="sidebar_menu">
+				<div class="sidebar__link active_menu_link">
+					<i class="fa fa-home"></i>
+					<a href="#">Dashboard</a>
+		
+				</div>
+				<h2 style="color: #ffffff;">MNG</h2>
+				<div class="sidebar__link">
+					<i class="fa fa-dashboard fa-fw"></i>
+					<a href="#">Admin Management</a>
+		
+				</div>
+				<div class="sidebar__link">
+					<i class="fa fa-building-o"></i>
+					<a href="#">Company Management</a>
+		
+				</div>
+				<div class="sidebar__link">
+					<i class="fa fa-wrench"></i>
+					<a href="viewemp.php">Employee Management</a>
+		
+				</div>
+				<div class="sidebar__link">
+					<i class="fa fa-user-secret"></i>
+					<a href="salaryemp.php">Salary Table</a>
+		
+				</div>
+				<div class="sidebar__link">
+					<i class="fa fa-bandshake-o"></i>
+					<a href="#">Contacts</a>
+		
+				</div>
+				<div class="sidebar__link">
+					<i class="fa fa-question"></i>
+					<a href="#">Requests</a>
+		
+				</div>
+				<div class="sidebar__link">
+					<i class="fa fa-sign-out"></i>
+					<a href="#">Leave Policy</a>
+		
+				</div>
+				<div class="sidebar__link">
+					<i class="fa fa-calendal-check-o"></i>
+					<a href="#">Special Days</a>
+		
+				</div>
+				<div class="sidebar__link">
+					<i class="fa fa-files-o"></i>
+					<a href="#">Employees leave</a>
+		
+				</div>
+				<h4>Notifications</h4>
+				<div class="sidebar__link">
+					<i class="fa fa-money"></i>
+					<a href="assignproject.php">Project Status</a>
+		
+				</div>
+				<div class="sidebar__link">
+					<i class="fa fa-briefcase"></i>
+					<a href="msg.php">Messages</a>
+		
+				</div>
+				<div class="sidebar__logout">
+					<i class="fa fa-power-off"></i>
+					<a href="logout.php">Logout</a>
+				</div>
+			</div>
+		
+		</div>
+	</div>
+	
+	<!-- we use Apex charts cdn -->
+	<script src="https://cdn.jsdeliv.net/npm/apexcharts"></script>
+	<script src="script.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <!-- ALL PLUGINS -->
+	<script src="js/jquery.superslides.min.js"></script>
+	<script src="js/images-loded.min.js"></script>
+	<script src="js/isotope.min.js"></script>
+	<script src="js/baguetteBox.min.js"></script>
+	<script src="js/form-validator.min.js"></script>
+    <script src="js/contact-form-script.js"></script>
+    <script src="js/custom.js"></script>
+
+</body>
+</html>
